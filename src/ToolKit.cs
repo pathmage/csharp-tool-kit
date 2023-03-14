@@ -1,0 +1,4 @@
+﻿namespace ToolKit
+{
+	class ToolKit { }
+}

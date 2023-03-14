@@ -1,10 +1,41 @@
 <Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>
+    <Authors>Pathmage</Authors>
+    <RootNamespace>ToolKit.Testspace</RootNamespace>
     <OutputType>Exe</OutputType>
     <TargetFramework>net7.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
   </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\src\ToolKit.csproj" />
+    <Using Include="ToolKit" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <EnableDynamicLoading>true</EnableDynamicLoading>
+    <NoWarn>0168;0642;8618;8981</NoWarn>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
+    <DefineConstants>WARN;THROW</DefineConstants>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Using Include="$(RootNamespace)" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(ImplicitUsings)' == 'disable' Or '$(ImplicitUsings)' == 'false'">
+    <Using Include="System" />
+    <!-- <Using Include="System.Text" /> -->
+    <!-- <Using Include="System.Reflection" /> -->
+    <!-- <Using Include="System.IO" /> -->
+    <!-- <Using Include="System.Collections" /> -->
+    <!-- <Using Include="System.Collections.Generic" /> -->
+    <!-- <Using Include="System.Linq" /> -->
+    <!-- <Using Include="System.Threading" /> -->
+    <!-- <Using Include="System.Threading.Tasks" /> -->
+  </ItemGroup>
 
 </Project>
